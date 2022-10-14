@@ -36,6 +36,9 @@ public class UserSecurityService implements UserDetailsService {
         if(userRepository.findUserByUsername(ADMIN_USERNAME) == null){
             userRepository.save(new User(ADMIN_USERNAME, encoder.encode(ADMIN_PASS), Role.ADMIN));
         }
+        if(userRepository.findUserByUsername("test") == null){
+            userRepository.save(new User("test", encoder.encode("test"), Role.EMPLOYER));
+        }
     }
 
     @Override
